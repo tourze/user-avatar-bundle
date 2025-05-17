@@ -2,14 +2,13 @@
 
 namespace Tourze\UserAvatarBundle\Service;
 
-use AppBundle\Entity\BizUser;
-use AppBundle\Service\AvatarService;
 use Symfony\Component\DependencyInjection\Attribute\AsAlias;
+use Symfony\Component\Security\Core\User\UserInterface;
 
-#[AsAlias(AvatarService::class, public: true)]
-class DefaultAvatarService implements AvatarService
+#[AsAlias(AvatarServiceInterface::class, public: true)]
+class DefaultAvatarService implements AvatarServiceInterface
 {
-    public function getLink(?BizUser $user, int $size = 128): string
+    public function getLink(?UserInterface $user, int $size = 128): string
     {
         $default = $_ENV['DEFAULT_USER_AVATAR_URL'];
 
@@ -28,7 +27,7 @@ class DefaultAvatarService implements AvatarService
         return $default;
     }
 
-    public function syncAvatarToLocal(BizUser $user): void
+    public function syncAvatarToLocal(UserInterface $user): void
     {
         // TODO
     }
