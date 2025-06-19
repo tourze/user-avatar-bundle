@@ -83,8 +83,9 @@ class DefaultAvatarServiceTest extends TestCase
     {
         $user = $this->createMock(CustomUser::class);
         
-        // 检查方法是否可以执行，不抛出异常
-        $this->assertNull($this->service->syncAvatarToLocal($user));
+        // 检查方法是否可以执行，不抛出异常（方法返回void）
+        $this->service->syncAvatarToLocal($user);
+        $this->addToAssertionCount(1); // 确保测试有断言
     }
 }
 

@@ -12,12 +12,13 @@ class DefaultAvatarService implements AvatarServiceInterface
     {
         $default = $_ENV['DEFAULT_USER_AVATAR_URL'];
 
-        if ($user) {
-            if ($user?->getAvatar()) {
+        if ($user !== null) {
+            // TODO: 需要根据实际 User 实体类型修改方法调用
+            if (method_exists($user, 'getAvatar') && $user->getAvatar()) {
                 return $user->getAvatar();
             }
             // 如果有邮箱，则使用Gravatar
-            if ($user->getEmail()) {
+            if (method_exists($user, 'getEmail') && $user->getEmail()) {
                 return 'https://www.gravatar.com/avatar/'
                     . hash('sha256', strtolower(trim($user->getEmail())))
                     . '?d=' . urlencode($default) . '&s=' . $size;
