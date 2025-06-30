@@ -5,7 +5,7 @@ namespace Tourze\UserAvatarBundle\Service;
 use Symfony\Component\DependencyInjection\Attribute\AsAlias;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-#[AsAlias(AvatarServiceInterface::class, public: true)]
+#[AsAlias(id: AvatarServiceInterface::class, public: true)]
 class DefaultAvatarService implements AvatarServiceInterface
 {
     public function getLink(?UserInterface $user, int $size = 128): string
