@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tourze\UserAvatarBundle\Service;
 
 use Symfony\Component\DependencyInjection\Attribute\AsAlias;
@@ -12,7 +14,7 @@ class DefaultAvatarService implements AvatarServiceInterface
     {
         $default = $_ENV['DEFAULT_USER_AVATAR_URL'];
 
-        if ($user !== null) {
+        if (null !== $user) {
             // TODO: 需要根据实际 User 实体类型修改方法调用
             if (method_exists($user, 'getAvatar') && $user->getAvatar()) {
                 return $user->getAvatar();

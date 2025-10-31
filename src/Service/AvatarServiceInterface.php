@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tourze\UserAvatarBundle\Service;
 
 use Symfony\Component\Security\Core\User\UserInterface;

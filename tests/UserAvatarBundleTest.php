@@ -1,15 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tourze\UserAvatarBundle\Tests;
 
-use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+use Tourze\PHPUnitSymfonyKernelTest\AbstractBundleTestCase;
 use Tourze\UserAvatarBundle\UserAvatarBundle;
 
-class UserAvatarBundleTest extends TestCase
+/**
+ * @internal
+ */
+#[CoversClass(UserAvatarBundle::class)]
+#[RunTestsInSeparateProcesses]
+final class UserAvatarBundleTest extends AbstractBundleTestCase
 {
-    public function test_bundle_instantiation(): void
-    {
-        $bundle = new UserAvatarBundle();
-        $this->assertInstanceOf(UserAvatarBundle::class, $bundle);
-    }
-} 
+}
