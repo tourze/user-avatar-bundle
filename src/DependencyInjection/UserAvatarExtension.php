@@ -6,7 +6,7 @@ namespace Tourze\UserAvatarBundle\DependencyInjection;
 
 use Tourze\SymfonyDependencyServiceLoader\AutoExtension;
 
-class UserAvatarExtension extends AutoExtension
+final class UserAvatarExtension extends AutoExtension
 {
     protected function getConfigDir(): string
     {
